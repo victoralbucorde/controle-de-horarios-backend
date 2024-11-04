@@ -7,6 +7,12 @@ app.get('/', (req, res) => {
 })
 
 app.post('/', (req,res) => {
+    let body = req.body
+
+    console.log(body)
+
+    
+
     res.status(201).send()
 })
 

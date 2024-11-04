@@ -1,1 +1,17 @@
 POST http://localhost:3000
+Content-Type: application/json
+
+{
+    "breaks": [{
+        "endDate": "27/05/2024",
+        "endLocation": 32878485482,
+        "startDate": "27/05/2025",
+        "startLocation": 9847381429
+    }],
+    "startDate": "27/05/2024",
+    "endDate": "27/05/2024",
+    "startLocation": 2201348284283101,
+    "endLocation": 283782738242,
+    "edited": False,
+    
+}
