@@ -1,25 +1,30 @@
 const express = require('express');
 const app = express();
-
-// app.METODO('rota/caminho', (req, res) => {})
-
-app.get('/users', (req, res) => {
-    res.send("Nessa rota vou retornar os usuários");
-});
-
-app.post('/users', (req, res) => {
-    res.send("Rota users usando post");
-});
-
-app.get('/user/:id', (req, res) => {
-    res.send(`o parâmetro é ${req.params.id}`)
-});
-
-app.post('/user/:id1-:id2', (req, res) => {
-    res.send(req.params);
-});
-
 const PORT = 3000;
+
+app.get('/', (req, res) => {
+    res.redirect('localhost:3000/painel')
+})
+
+app.get('/painel', (req, res) => {
+    console.log('redirecionado')
+});
+
+app.get('/historico', (req, res) => {
+    res.send("Aqui vou ver o histórico do usuário")
+})
+
+app.post('/login', (req, res) => {
+    const body = req.body
+
+    console.log(body)
+
+    res.send("Aqui vou autenticar o login");
+});
+
+app.post('/register', (req, res) => {
+    res.send("Aqui vou criar novos usuarios");
+});
 
 app.listen(PORT, () => {
     console.log(`Servidor web ouvindo na porta ${PORT}`);
