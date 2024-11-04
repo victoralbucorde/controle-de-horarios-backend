@@ -1,21 +1,26 @@
-const express = require('express')
-const app = express()
-const port = 3000
+const express = require('express');
+const app = express();
 
-app.get('/', (req, res) => {
-    res.send('Hello world')
-})
+// app.METODO('rota/caminho', (req, res) => {})
 
-app.post('/', (req,res) => {
-    let body = req.body
+app.get('/users', (req, res) => {
+    res.send("Nessa rota vou retornar os usuários");
+});
 
-    console.log(body)
+app.post('/users', (req, res) => {
+    res.send("Rota users usando post");
+});
 
-    
+app.get('/user/:id', (req, res) => {
+    res.send(`o parâmetro é ${req.params.id}`)
+});
 
-    res.status(201).send()
-})
+app.post('/user/:id1-:id2', (req, res) => {
+    res.send(req.params);
+});
 
-app.listen(port, () => {
-    console.log(`Listening on port ${port}`)
-})
+const PORT = 3000;
+
+app.listen(PORT, () => {
+    console.log(`Servidor web ouvindo na porta ${PORT}`);
+});
